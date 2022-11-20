@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+# -*- coding: latin1 -*-
 """
 Created on Fri Oct 22 13:23:56 2021
 
@@ -206,5 +206,5 @@ if uploaded_file:
     
     df_escrito=pd.read_csv('resultados_busqueda_vies.csv',sep=';',encoding='latin1')
     file_x=to_excel(df_escrito)
-    st.download_button(label='📥 Bajar los resultados actuales en EXCEL',data=file_x, file_name=new_file_name_xlsx,encoding='latin1')   
+    st.download_button(label='📥 Bajar los resultados actuales en EXCEL',data=file_x, file_name=new_file_name_xlsx)   
             
