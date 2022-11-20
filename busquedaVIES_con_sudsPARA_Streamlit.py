@@ -15,7 +15,7 @@ Created on Fri Oct 22 13:23:56 2021
 
 # txt = "ATU10592107"
 
-import suds sd suds
+import suds as suds
 
 import streamlit as st
 import pandas as pd
