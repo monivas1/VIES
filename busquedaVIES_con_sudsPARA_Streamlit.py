@@ -129,8 +129,12 @@ if uploaded_file:
         # st.write(myvies)
         # myvies=myvies.strip(' \n')
         # st.write(myvies)
-        pais=myvies[0:2]
-        num=myvies[2:]
+        try:
+            pais=myvies[0:2]
+            num=myvies[2:]
+        except Exception :
+            pais=""
+            num=""
         # .strip(' \n')
     
         # try:
