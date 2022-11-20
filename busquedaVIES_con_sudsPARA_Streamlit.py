@@ -203,9 +203,7 @@ if uploaded_file:
     file_w.close()          
     
     
-    df_escrito=pd.read_csv('resultados_busqueda_vies.csv',sep=';',encoding='latin1')
-    file_x=to_excel(df_escrito)
-    st.download_button(label='📥 Bajar los resultados actuales en EXCEL',data=file_x, file_name=new_file_name_xlsx)   
-    # with open('resultados_busqueda_vies.xlsx') as f:
-    #     st.download_button('Descargar XLSX', f) 
-           
+    #df_escrito=pd.read_csv('resultados_busqueda_vies.csv',sep=';',encoding='latin1')
+    #file_x=to_excel(df_escrito)
+    #st.download_button(label='📥 Bajar los resultados actuales en EXCEL',data=file_x, file_name=new_file_name_xlsx)   
+            
