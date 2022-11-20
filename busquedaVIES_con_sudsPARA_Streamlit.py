@@ -15,7 +15,8 @@ Created on Fri Oct 22 13:23:56 2021
 
 # txt = "ATU10592107"
 
-import suds as suds
+pip install suds-jurko
+
 import streamlit as st
 import pandas as pd
 from io import BytesIO
