@@ -199,7 +199,8 @@ if uploaded_file:
     file_w = open("resultados_busqueda_vies.csv")
     # df_escrito=pd.read_csv('resultados_busqueda_vies.csv',sep=';')
     # csv=df_escrito.to_csv().encode('utf-32')
-    st.download_button(label='📥 Bajar los resultados actuales en CSV',data=file_w, file_name=new_file_name_csv )                    
+    #st.download_button(label='📥 Bajar los resultados actuales en CSV',data=file_w, file_name=new_file_name_csv )                    
+    st.download_button(label='📥 Bajar los resultados actuales en CSV',data=file_w, file_name="PP.csv" )                    
     file_w.close()          
     
     
