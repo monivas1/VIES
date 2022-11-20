@@ -151,7 +151,7 @@ if uploaded_file:
             address=r.address.strip(' \n')
             address=address.replace("\n","")
                 
-            st.write(myvies + " :" + str(r.valid))
+            st.write(str(myvies) + " :" + str(r.valid))
             # st.write(r.valid)
 
             # st.write("VIES: ")
@@ -183,7 +183,7 @@ if uploaded_file:
         except Exception :
             # st.write(myvies)
             # st.write("No válido")
-            st.write(myvies + " : No Válido")
+            st.write(str(myvies) + " : No Válido")
             file_w = open("resultados_busqueda_vies.csv", "a")
             file_w.write(f"{myvies};")
             file_w.write("No válido;")
