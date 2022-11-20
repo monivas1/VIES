@@ -5,13 +5,6 @@ Created on Fri Oct 22 13:23:56 2021
 @author: User
 """
 
-# from suds.client import Client
-# url="http://ec.europa.eu/taxation_customs/vies/checkVatService.wsdl"
-# client = Client(url)
-# print(client) # to check the methonds
-# r=client.service.checkVat('SK', '2023398927')
-# print(r.valid)
-
 
 # txt = "ATU10592107"
 
@@ -84,14 +77,10 @@ def to_excel(df):
 # no lo borramos para que cuando nos cape podamos seguir anexando
 if (os.path.isfile('resultados_busqueda_vies.csv')):
       os.remove('resultados_busqueda_vies.csv')
-      # print("Seguimos escribiendo")
-      # file_w = open("resultados_busqueda_vies.csv", "x",encoding='utf-8')
-# else :
 
 file_w = open("resultados_busqueda_vies.csv","x",encoding='latin1')
 # file_w = open("resultados_busqueda_vies.csv","x",encoding='utf-32')
 
-# file_w = open("resultados_busqueda_vies.csv", "a")
 file_w.write("VIES;")
 file_w.write("Código país;")
 file_w.write("Número de IVA intra;")
@@ -111,17 +100,13 @@ if uploaded_file:
     # file = pd.read_csv(uploaded_file)
     
     df = pd.read_excel(uploaded_file, sheet_name='Hoja1')
-    # df = pd.read_excel("vies_a_buscar.xlsx", sheet_name='Hoja1')
 
     file_name = Path(uploaded_file.name).stem
     
     now = datetime.now()
     new_file_name_csv=file_name + "_" + str(now.year) + str(now.month) + str(now.day) + "_" + str(now.hour) +str(now.minute) + ".csv"
     new_file_name_xlsx=file_name + "_" + str(now.year) + str(now.month) + str(now.day) + "_" + str(int(now.hour)*100 +int(now.minute)) + ".xlsx"
-    # st.write(new_file_name_xlsx)
-    # file = open("vies_a_buscar.txt", "r") 
-    # for myvies in uploaded_file.readlines(): 
-    # for line in uploaded_file:
+
     for i in range(len(df)):
         myvies=df['VIES'][i]
         # st.write(myvies)
@@ -135,39 +120,14 @@ if uploaded_file:
         except Exception :
             pais=""
             num=""
-        # .strip(' \n')
-    
-        # try:
-        #     i=valid_country.index(pais.upper())
-        # except Exception: 
-        #     i=-10
-        # st.write(myvies)
-        # st.write("pais")
-        # st.write(pais)
-        # st.write("num")
-        # st.write(num)
+
         try:
             r=client.service.checkVat(pais, num)
             address=r.address.strip(' \n')
             address=address.replace("\n","")
                 
             st.write(str(myvies) + " :" + str(r.valid))
-            # st.write(r.valid)
 
-            # st.write("VIES: ")
-            # st.write(f"{myvies}*")
-            # st.write("Código país: ")
-            # st.write(f"{r.countryCode}*")
-            # st.write("Número de IVA intra: ")
-            # st.write(f"{r.vatNumber}*")
-            # st.write("Fecha de solicitud: ")
-            # st.write(f"{r.requestDate}*")
-            # st.write("Válido: ")
-            # st.write(f"{r.valid}*")
-            # st.write("Razón social: ")
-            # st.write(f"{r.name}*")
-            # st.write("Dirección: ")
-            # st.write(f"{address}")
             
             file_w = open("resultados_busqueda_vies.csv", "a",encoding='latin1')
             file_w.write(f"{myvies};")
@@ -181,8 +141,6 @@ if uploaded_file:
             file_w.write("\n")
             file_w.close()  
         except Exception :
-            # st.write(myvies)
-            # st.write("No válido")
             st.write(str(myvies) + " : No Válido")
             file_w = open("resultados_busqueda_vies.csv", "a",encoding='latin1')
             file_w.write(f"{myvies};")
@@ -195,10 +153,8 @@ if uploaded_file:
              
             file_w.write("\n")
             file_w.close()
-            # st.download_button(label='📥 Bajar los resultados actuales',
     file_w = open("resultados_busqueda_vies.csv",encoding='latin1')
-    # df_escrito=pd.read_csv('resultados_busqueda_vies.csv',sep=';')
-    # csv=df_escrito.to_csv().encode('utf-32')
+
     st.download_button(label='📥 Bajar los resultados actuales en CSV',data=file_w, file_name=new_file_name_csv )                    
     file_w.close()          
     
