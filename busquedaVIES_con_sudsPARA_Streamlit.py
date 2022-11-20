@@ -196,15 +196,15 @@ if uploaded_file:
             file_w.write("\n")
             file_w.close()
             # st.download_button(label='📥 Bajar los resultados actuales',
-    file_w = open("resultados_busqueda_vies.csv")
+    #file_w = open("resultados_busqueda_vies.csv")
     # df_escrito=pd.read_csv('resultados_busqueda_vies.csv',sep=';')
     # csv=df_escrito.to_csv().encode('utf-32')
     #st.download_button(label='📥 Bajar los resultados actuales en CSV',data=file_w, file_name=new_file_name_csv )                    
-    st.download_button(label='📥 Bajar los resultados actuales en CSV',data=file_w, file_name="PP.csv" )                    
-    file_w.close()          
+    #st.download_button(label='📥 Bajar los resultados actuales en CSV',data=file_w, file_name="PP.csv" )                    
+    #file_w.close()          
     
     
-    #df_escrito=pd.read_csv('resultados_busqueda_vies.csv',sep=';',encoding='latin1')
-    #file_x=to_excel(df_escrito)
-    #st.download_button(label='📥 Bajar los resultados actuales en EXCEL',data=file_x, file_name=new_file_name_xlsx)   
+    df_escrito=pd.read_csv('resultados_busqueda_vies.csv',sep=';',encoding='latin1')
+    file_x=to_excel(df_escrito)
+    st.download_button(label='📥 Bajar los resultados actuales en EXCEL',data=file_x, file_name=new_file_name_xlsx)   
             
