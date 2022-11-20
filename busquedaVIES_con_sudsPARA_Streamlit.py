@@ -25,7 +25,7 @@ from suds.client import Client
 import os
 from datetime import datetime
 
-st.set_page_config(page_title="VUD",page_icon="Icono.ico",layout="wide")
+st.set_page_config(page_title="VUD",page_icon="vud.ico",layout="wide")
 
 
 st.write(
